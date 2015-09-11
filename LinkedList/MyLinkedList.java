@@ -2,8 +2,8 @@ public class MyLinkedList{
 
     private class Data
     {
-        private Object data;
-        private Data next=null;
+        Object data;
+        Data next=null;
         Data(Object obj)
         {
             this.data=obj;
@@ -24,5 +24,8 @@ public class MyLinkedList{
             firstData=new Data(obj);
         }
     }
-    
+    public Object getFirst()
+	{
+		return fistData.data;
+	}
 }
