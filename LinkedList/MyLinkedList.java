@@ -11,7 +11,7 @@ public class MyLinkedList{
         Data(Object obj,Data data)
         {
             this.data=obj;
-            this.data=data;
+            this.next=data;
         }
     }
     
