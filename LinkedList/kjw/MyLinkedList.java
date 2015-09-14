@@ -51,6 +51,11 @@ public class MyLinkedList{
     		if(data.data.equals(obj))
     		{
     			data=data.next;
+    			return ;
+    		}
+    		else
+    		{
+    			delFirst(obj, data.next);
     		}
     	}
     }

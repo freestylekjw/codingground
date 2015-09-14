@@ -8,5 +8,7 @@ public class index
         list.add(23);
         list.add(24); 
         System.out.println(list.toString());
+        list.delFirst(23);
+        System.out.println(list.toString());
     }
 }
