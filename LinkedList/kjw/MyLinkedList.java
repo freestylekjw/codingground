@@ -96,7 +96,7 @@ public class MyLinkedList{
     		else
     		{
     			if(data.next!=null)
-    			{
+    			{ 
     				delAll(obj,data.next);
     			}
     		}
