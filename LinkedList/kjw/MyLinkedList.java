@@ -1,4 +1,10 @@
 package kjw;
+
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
 public class MyLinkedList{
 
     private class Node
@@ -40,7 +46,7 @@ public class MyLinkedList{
     		}
     		else
     		{
-    			delFirst(obj,firstNode.next);
+    			delFirst(obj,firstNode);
     		}
     	}
     }
@@ -48,14 +54,51 @@ public class MyLinkedList{
     {
     	if(data!=null)
     	{
-    		if(data.data.equals(obj))
+    		if(data.next.data.equals(obj))
     		{
-    			data=data.next;
+    			data.next=data.next.next;
     			return ;
     		}
     		else
     		{
     			delFirst(obj, data.next);
+    		}
+    	}
+    }
+    public void delAll(Object obj)
+    {
+    	if(firstNode!=null&&obj!=null)
+    	{
+    		if(firstNode.equals(obj))
+    		{
+    			firstNode=firstNode.next;
+    			delAll(obj);
+    		}
+    		else
+    		{
+    			System.out.println(new SimpleDateFormat("hh:mm:ss:SSSSSSSS").format(new Date()));
+    			delAll(obj,firstNode);
+    			System.out.println(new SimpleDateFormat("hh:mm:ss:SSSSSSSS").format(new Date()));
+    		}
+    		
+    	}
+    }
+    private void delAll(Object obj,Node data)
+    {
+    	if(data.next!=null)
+    	{
+    		if(data.next.data.equals(obj))
+    		{
+    			data.next=data.next.next;
+        		delAll(obj, data);
+        		return;
+    		}
+    		else
+    		{
+    			if(data.next!=null)
+    			{
+    				delAll(obj,data.next);
+    			}
     		}
     	}
     }
@@ -83,6 +126,7 @@ public class MyLinkedList{
     	{
     		sb.append(","+data.data);
     		nextToString(data.next, sb);
+    		return;
     	}
     	else
     		sb.append(".");
